@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  mariadb:
+    image: mariadb
+    ports:
+        - 3307:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: yx7n8gehy25rzeqjbyxxzs2
+  
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+        - mariadb
+    ports:
+        - 8081:80
+    environment:
+      PMA_HOST: mariadb
+      MYSQL_ROOT_PASSWORD: yx7n8gehy25rzeqjbyxxzs2
